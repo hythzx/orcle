@@ -58,6 +58,40 @@ create user BI identified by bi123 DEFAULT TABLESPACE USERS QUOTA 10M ON USERS A
 grant connect,resource to BI;
 ```
 
+### 移除角色
+```sql
+REVOKE connect,resource from BI;
+```
+
+```sql
+# BI2
+create user BI2 identified by bi123 DEFAULT TABLESPACE USERS QUOTA 10M ON USERS ACCOUNT LOCK;
+grant connect,resource to BI2;
+GRANT SELECT,INSERT,UPDATE ON BI.TB_USER TO BI2;
+```
+
+
+### 创建角色
+```sql
+ 
+```
+
+### 权限信息涉及到的表
+
+```sql
+
+#角色表
+select * from DBA_ROLES;
+
+#角色权限关联表
+select * from DBA_ROLE_PRIVS;
+
+#用户角色关联表
+select * from USER_ROLE_PRIVS;
+
+#角色-角色关联表
+select * from ROLE_ROLE_PRIVS;
+```
 ### 用户锁定　
 ```sql
 ALTER USER BI ACCOUNT LOCK;
