@@ -84,7 +84,7 @@ REVOKE connect,resource from BI;
 # BI2
 create user BI2 identified by bi123 DEFAULT TABLESPACE USERS QUOTA 10M ON USERS ACCOUNT LOCK;
 grant connect,resource to BI2;
-GRANT SELECT,INSERT,UPDATE ON BI.TB_USER TO BI2;
+GRANT SELECT ON BI.TB_USER TO BI2;
 ```
 
 
